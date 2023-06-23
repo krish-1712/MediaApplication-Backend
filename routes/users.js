@@ -8,9 +8,14 @@ const { videoModel } = require('../Schemas/videoSchemas');
 const nodemailer = require('nodemailer')
 const jwt = require('jsonwebtoken')
 
+
 mongoose.connect(dbUrl)
 
-/* Register */
+
+
+
+
+/* register */
 router.post('/register', async (req, res) => {
   console.log("inside")
   try {
@@ -41,14 +46,17 @@ router.post('/register', async (req, res) => {
   }
 });
 
-/* Login */
+/* login */
 router.post('/login', async (req, res) => {
   try {
     console.log("rtetss")
     let user = await userModel.findOne({ email: req.body.email })
     console.log(user)
     if (user) {
+
+      // verify the password
       if (await hashCompare(req.body.password, user.password)) {
+        // create the Token
         let token = await createToken({
           name: user.name,
           email: user.email,
@@ -92,6 +100,8 @@ router.put('/:id', validate, async (req, res) => {
       user.name = req.body.name;
       user.email = req.body.email;
       await user.save();
+
+
       const { password, ...others } = user._doc;
       res.status(200).send({
         message: 'User Updated Successfully!',
@@ -109,6 +119,7 @@ router.put('/:id', validate, async (req, res) => {
     });
   }
 });
+
 
 /* delete */
 router.delete('/:id', validate, async (req, res) => {
@@ -314,7 +325,7 @@ router.post("/reset", async (req, res) => {
     const queryString = queryParams.toString();
     let details = {
       from: "greenpalace1712@gmail.com",
-      to: "krishkannan1712@gmail.com",
+      to: user.email,
       subject: "Hello ✔",
       html: `
         <p>Hello,</p>
