@@ -175,7 +175,7 @@ router.post("/help", async (req, res) => {
     const queryString = queryParams.toString();
 
     let details = {
-      from: "krishkannan1712@gmail.com",
+      from: user.email,
       to: "greenpalace1712@gmail.com",
       subject: "Help Request",
       html: `
@@ -228,7 +228,7 @@ router.post("/feedback", async (req, res) => {
     const queryString = queryParams.toString();
 
     let details = {
-      from: "krishkannan1712@gmail.com",
+      from: user.email,
       to: "greenpalace1712@gmail.com",
       subject: "Help Request",
       html: `
