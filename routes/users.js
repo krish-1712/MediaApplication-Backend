@@ -12,19 +12,19 @@ const jwt = require('jsonwebtoken')
 // mongoose.connect(dbUrl)
 
 
-
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  retryWrites: true,
-})
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
-  });
+});
 
+// Get the default connection
+const db = mongoose.connection;
+
+// Handle connection events
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
 
 
 
