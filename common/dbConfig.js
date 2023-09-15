@@ -4,4 +4,3 @@ const dbUrl = `mongodb+srv://${process.env.EMAIL}:${process.env.PASSWORD}@cluste
 
 module.exports = { dbUrl }     
 
-
