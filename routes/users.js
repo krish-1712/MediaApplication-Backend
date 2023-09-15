@@ -8,17 +8,10 @@ const { videoModel } = require('../Schemas/videoSchemas');
 const nodemailer = require('nodemailer')
 const jwt = require('jsonwebtoken')
 
+// mongoose.connect(dbUrl)
 
-
-
-  try {
-     mongoose.connect(dbUrl);
-    console.log('Connected to MongoDB Atlas');
-    // Perform database operations here
-  } catch (error) {
-    console.error('Error connecting to MongoDB Atlas:', error);
-  }
-
+mongoose.connect(dbUrl)
+  .then(() => console.log('Connected!',dbUrl));
 
 
 /* register */
