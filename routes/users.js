@@ -9,12 +9,13 @@ const nodemailer = require('nodemailer')
 const jwt = require('jsonwebtoken')
 
 require('dotenv').config()
-mongoose.connect(dbUrl)
+// mongoose.connect(dbUrl)
 
 
 
 
-
+mongoose.connect(`mongodb+srv://${process.env.EMAIL}:${process.env.PASSWORD}@cluster0.v5ee5wa.mongodb.net/${process.env.DB_NAME}`)
+.then(() => console.log('Connected!'));
 
 
 
