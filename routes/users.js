@@ -8,8 +8,15 @@ const { videoModel } = require('../Schemas/videoSchemas');
 const nodemailer = require('nodemailer')
 const jwt = require('jsonwebtoken')
 
-
+require('dotenv').config()
 mongoose.connect(dbUrl)
+
+
+
+
+
+
+
 
 
 
