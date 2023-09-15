@@ -282,7 +282,7 @@ router.get('/find/:id', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     let users = await userModel.find();
-    console.log(users);
+    // console.log(users);
     return res.status(200).send({
       users,
       message: 'Users Data Fetch Successfully!'
@@ -290,8 +290,7 @@ router.get('/', async (req, res) => {
 
   } catch (error) {
     res.status(500).send({
-      message: 'Internal Server Error',
-      error
+      message: 'Internal Server Error...'
     })
     console.log(error);
   }
