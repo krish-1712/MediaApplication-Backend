@@ -9,8 +9,21 @@ const nodemailer = require('nodemailer')
 const jwt = require('jsonwebtoken')
 
 
-mongoose.connect(dbUrl)
+// mongoose.connect(dbUrl)
 
+
+
+mongoose.connect(dbUrl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  retryWrites: true,
+})
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+  });
 
 
 
