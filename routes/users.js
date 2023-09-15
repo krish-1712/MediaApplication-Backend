@@ -10,16 +10,14 @@ const jwt = require('jsonwebtoken')
 
 
 // mongoose.connect(dbUrl)
-
-
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
-    // Start your server or perform other tasks here
   })
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
   });
+
 
 
 
