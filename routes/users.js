@@ -11,7 +11,7 @@ const jwt = require('jsonwebtoken')
 // mongoose.connect(dbUrl)
 
 mongoose.connect(dbUrl)
-  .then(() => console.log('Connected!',dbUrl));
+  .then(() => console.log('Connected!'));
 
 
 /* register */
