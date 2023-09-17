@@ -48,8 +48,7 @@ router.post('/register', async (req, res) => {
 /* login */
 router.post('/login', async (req, res) => {
   try {
-    console.log("rtetss")
-    console.log('server url : ',serverUrl);
+
     let user = await userModel.findOne({ email: req.body.email })
     console.log(user)
     if (user) {
@@ -324,7 +323,6 @@ router.post("/reset", async (req, res) => {
     const queryParams = new URLSearchParams();
     queryParams.set('token', token);
     const queryString = queryParams.toString();
-    const serverUrl = `${req.protocol}://${req.get('host')}`;
     let details = {
       from: "greenpalace1712@gmail.com",
       to: user.email,
