@@ -28,3 +28,10 @@ const validate = async (req, res, next) => {
 }
 
 module.exports = { hashPassword, hashCompare, createToken, validate }
+
+
+
+
+
+
+
