@@ -300,8 +300,8 @@ router.get('/', async (req, res) => {
 router.post("/reset", async (req, res) => {
   try {
     let user = await userModel.findOne({ email: req.body.values.email })
-    let url = req.headers.origin;
-    console.log('URL ::::::::::::::::::::::::::::::: ',url);
+    // let url = req.headers.origin;
+    // console.log('URL ::::::::::::::::::::::::::::::: ',url);
     console.log(user)
     if (!user) {
       return res.status(404).send({ message: 'User not found' });
@@ -330,7 +330,8 @@ router.post("/reset", async (req, res) => {
       html: `
         <p>Hello,</p>
         <p>Please click on the following link to reset your password:</p>
-      <a href="${url}/password?${queryString}">Reset Password</a>
+  
+      <a href="${process.env.CLIENT_URL}/password?${queryString}">Reset Password</a>
         <p>If you didn't request this, please ignore this email.</p>
       `
     };
@@ -400,3 +401,4 @@ module.exports = router;
 
 
 
+{/* <a href="${url}/password?${queryString}">Reset Password</a> */}
