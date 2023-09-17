@@ -16,9 +16,11 @@ var app = express();
 
 
 
+app.use(cors({
+  origin: 'https://adorable-tarsier-dc0432.netlify.app', // Replace with your actual frontend URL
+}));
 
-// app.use(cors({ origin: "http://localhost:3000" }));
-app.use(cors());
+// app.use(cors());
 
 
 
