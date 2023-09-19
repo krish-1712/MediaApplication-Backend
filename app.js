@@ -17,15 +17,7 @@ var app = express();
 
 
 
-
-const corsOptions = {
-  origin: 'https://adorable-tarsier-dc0432.netlify.app', // Replace with your actual frontend URL
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-};
-
-app.use(cors(corsOptions));
-
-// app.use(cors());
+app.use(cors());
 
 
 
