@@ -300,8 +300,6 @@ router.get('/', async (req, res) => {
 router.post("/reset", async (req, res) => {
   try {
     let user = await userModel.findOne({ email: req.body.values.email })
-    // let url = req.headers.origin;
-    // console.log('URL ::::::::::::::::::::::::::::::: ',url);
     console.log(user)
     if (!user) {
       return res.status(404).send({ message: 'User not found' });
