@@ -229,7 +229,7 @@ router.post("/feedback", async (req, res) => {
     let details = {
       from: user.email,
       to: "greenpalace1712@gmail.com",
-      subject: "Help Request",
+      subject: "Feedback Request",
       html: `
         <p>Hello,</p>
         <p>You have received a Feedback from ${req.body.values.name} (${req.body.values.email}).</p>
@@ -240,10 +240,10 @@ router.post("/feedback", async (req, res) => {
     };
 
     await transporter.sendMail(details);
-    console.log('Help email sent');
-    res.status(200).send({ message: 'Help email sent' });
+    console.log('Feedback email sent');
+    res.status(200).send({ message: 'Feedback email sent' });
   } catch (error) {
-    console.error('Error sending help email:', error);
+    console.error('Error sending Feedback email:', error);
     res.status(500).send({
       message: "Internal Server Error",
       error,
@@ -382,15 +382,6 @@ router.post('/password', async (req, res) => {
     })
   }
 })
-
-
-
-
-
-
-
-
-
 
 
 
