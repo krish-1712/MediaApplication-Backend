@@ -259,7 +259,8 @@ router.put('/views/:videoId', async (req, res) => {
 /* Trend Vedio */
 router.get('/trend', async (req, res) => {
   try {
-    const videos = await videoModel.find().sort({ views: -1 }).limit(2);
+    const limit = parseInt(req.query.limit) || 10; // default show top 10 trending
+    const videos = await videoModel.find({ views: { $gt: 0 } }).sort({ views: -1 }).limit(limit);
     console.log(videos);
     res.status(200).send(videos);
   } catch (error) {
